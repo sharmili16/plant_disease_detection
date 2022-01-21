@@ -1,0 +1,18 @@
+{% extends 'base.html'%} {% block content %}
+<div class="container d-flex">
+  <form action="/" method="POST" enctype="multipart/form-data">
+    {{form.hidden_tag()}}
+    <div class="form-group m-3">
+      {{form.image(class="form-control form-control-lg")}}
+    </div>
+    {{ form.submit(class="btn btn-danger")}}
+  </form>
+  <div>
+    {% if filename and ouput%}
+    <img src="{{image}}" alt="" />
+
+    <h3>Prediction:{{output}}</h3>
+    {% endif %}
+  </div>
+</div>
+{% endblock content%}
